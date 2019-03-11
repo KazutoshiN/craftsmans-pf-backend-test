@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Craftsman-pf-backend
+職人PFのバックエンド(API)サーバです
 
-Things you may want to cover:
+## 環境
+ - Rails 5.2.2
+ - Ruby 2.6.1
+ - MySQL 5.5.54
 
-* Ruby version
+## 動かし方
 
-* System dependencies
+```shell
+ $ bundle install --path vendor/bundle
+ $ budnle exec rails db:create
+ $ budnle exec rails db:migrate
+ $ budnle exec rale db:prepare_data
+ $ budnle exec rails s -b 0.0.0.0
+```
 
-* Configuration
+## ユニットテスト
+```
+ $ budnle exec rspec
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
