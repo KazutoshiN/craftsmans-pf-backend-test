@@ -1,0 +1,35 @@
+event1:
+  issue_id: 1
+  project_type: restoration
+  project_name: ウエストインパート3 201号室＿リフレッシュ退去工事
+  property_name: ウエストインパート3
+  client_name: MHE中央南_松本
+  status: need_appointment
+  status_started_at: nil
+  status_completed_at: nil
+  next_status: "wait_fieldwork"
+  action_user_id: 1
+  action_user_name: "BPM 高木"
+  order_price: nil
+  project_started_at: Mon, 01 Oct 2018 00:00:00 UTC +00:00
+  project_completed_at: nil
+  created_at: Mon, 01 Oct 2018 00:00:00 UTC +00:00
+  updated_at: Mon, 01 Oct 2018 00:00:00 UTC +00:00
+
+event2:
+  issue_id: 1
+  project_type: "退去工事"
+  project_name: "ウエストインパート3 201号室＿リフレッシュ退去工事/一任 1/25"
+  property_name: "ウエストインパート3"
+  client_name: "MHE中央南_松本"
+  status: "wait_fieldwork"
+  status_started_at: Mon, 01 Oct 2018 00:00:00 UTC +00:00
+  status_completed_at: Wed, 03 Oct 2018 00:00:00 UTC +00:00
+  next_status: "need_check_result"
+  action_user_id: 1
+  action_user_name: "BPM 高木"
+  order_price: nil
+  project_started_at: Mon, 01 Oct 2018 00:00:00 UTC +00:00
+  project_completed_at: nil
+  created_at: Mon, 01 Oct 2018 00:00:00 UTC +00:00
+  updated_at: Mon, 01 Oct 2018 00:00:00 UTC +00:00
