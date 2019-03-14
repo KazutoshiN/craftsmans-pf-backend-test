@@ -1,0 +1,402 @@
+# Rails向けのRails copsを実行。"rubocop -R"と同じ
+Rails:
+  Enabled: true
+
+AllCops:
+  DisabledByDefault: false
+  # 除外するディレクトリ
+  Exclude:
+    - .bundle/**/*
+    - app/assets/**/*
+    - bin/**/*
+    - db/**/*
+    - lib/assets/**/*
+    - lib/tasks/data/**/*
+    - log/**/*
+    - public/**/*
+    - script/**/*
+    - spec/assets/**/*
+    - spec/es-data/**/*
+    - spec/fixtures/**/*
+    - test/**/*
+    - tmp/**/*
+    - vendor/**/*
+
+# ハッシュの行揃えを有効にする
+# EnforcedHashRocketStyle: key (default)
+Layout/AlignHash:
+  Enabled: true
+  EnforcedColonStyle: table
+# パラメータ(引数)の行揃えを有効にする
+# EnforcedStyle: with_first_parameter (default)
+Layout/AlignParameters:
+  Enabled: true
+# ブロックの行揃えを有効にする
+# EnforcedStyleAlignWith: either (default)
+Layout/BlockAlignment:
+  Enabled: true
+# コメントのインデント修正を有効にする
+Layout/CommentIndentation:
+  Enabled: true
+# メソッド呼び出し、メソッド定義、およびグループ化された式の中で閉じている括弧のインデントを確認する
+Layout/ClosingParenthesisIndentation:
+  Enabled: true
+# else句の行揃えを有効にする
+Layout/ElseAlignment:
+  Enabled: true
+# メソッド定義間の空行区切りを有効にする
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+# 2つ以上の連続する空白行を1行にする
+Layout/EmptyLines:
+  Enabled: true
+# ブロック周りの空白行を設定に合わせる
+# EnforcedStyle: no_empty_lines (default)
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: true
+# クラス周りの空白行を設定に合わせる
+# EnforcedStyle: no_empty_lines (default)
+Layout/EmptyLinesAroundClassBody:
+  Enabled: true
+# メソッド周りの空白行を設定に合わせる
+# EnforcedStyle: no_empty_lines (default)
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: true
+# モジュール周りの空白行を設定に合わせる
+# EnforcedStyle: no_empty_lines (default)
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: true
+# endを指定した設定に合わせる
+# EnforcedStyleAlignWith: keyword (default)
+# NOTE: 崩れるので一旦無効にする
+# TODO: 原因を調査する
+Layout/EndAlignment:
+  Enabled: false
+# 過不足している空白を調整する
+Layout/ExtraSpacing:
+  Enabled: true
+# 最初のパラメータを前の行の先頭より1ステップ分だけインデントする
+Layout/FirstParameterIndentation:
+  Enabled: true
+# 矛盾したインデントを修正する
+# EnforcedStyle: normal (default)
+Layout/IndentationConsistency:
+  Enabled: true
+# 指定されたスペースでインデントする
+Layout/IndentationWidth:
+  Enabled: true
+# ハッシュのインデントを最初の値で調整する
+# EnforcedStyle: special_inside_parentheses (default)
+Layout/IndentHash:
+  Enabled: true
+# コメントを"#"の後ろにスペースを入れる
+Layout/LeadingCommentSpace:
+  Enabled: true
+# ハッシュの波括弧を指定のレイアウトに変更する
+# EnforcedStyle: symmetrical (default)
+Layout/MultilineHashBraceLayout:
+  Enabled: true
+# 複数行にまたがるメソッド呼び出しのインデントを指定の形式に変更する
+# EnforcedStyle: aligned (default)
+Layout/MultilineMethodCallIndentation:
+  Enabled: true
+# メソッド呼び出しの中括弧の位置を変更する
+# EnforcedStyle: symmetrical (default)
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+# コロンの後ろにスペースを付与する
+Layout/SpaceAfterColon:
+  Enabled: true
+# カンマの後ろにスペースを付与する
+Layout/SpaceAfterComma:
+  Enabled: true
+# メソッド名の後ろにスペースを付与しない
+Layout/SpaceAfterMethodName:
+  Enabled: true
+# "**"以外の演算子の前後にスペースを付与する
+Layout/SpaceAroundOperators:
+  Enabled: true
+# 構成に応じて、"{"の前にスペースを付与する
+# EnforcedStyle: space (default)
+Layout/SpaceBeforeBlockBraces:
+  Enabled: true
+# 配列の括弧内のスペースを設定に応じて付与する
+# EnforcedStyle: no_space (default)
+Layout/SpaceInsideArrayLiteralBrackets:
+  Enabled: true
+# ブロック括弧内のスペースを設定に応じて付与する
+# enforcedstyle: space (default)
+Layout/SpaceInsideBlockBraces:
+  Enabled: true
+# ハッシュ内のスペースを設定に応じて付与する
+# enforcedstyle: space (default)
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+# 丸括弧内のスペースを設定に応じて付与する
+# EnforcedStyle: no_space (default)
+Layout/SpaceInsideParens:
+  Enabled: true
+# タブをスペースに変更する
+Layout/Tab:
+  Enabled: true
+# 設定に応じて最終行を変更する
+# EnforcedStyle: final_newline (default)
+Layout/TrailingBlankLines:
+  Enabled: true
+# 末尾の空白を削除する
+Layout/TrailingWhitespace:
+  Enabled: true
+
+# 非ASCIIを使用していないか確認する
+# NOTE: 日本語を許可するため無効にする
+Style/AsciiComments:
+  Enabled: false
+# 複数行のブロックを `{...}` から `do...end` に変換するか確認する
+# EnforcedStyle: line_count_based (default)
+# NOTE: メソッドチェーンを使用する可能性があるため無効にする
+Style/BlockDelimiters:
+  Enabled: false
+# 引数でハッシュを渡す際に波括弧をつけていないか確認する
+# EnforcedStyle: no_braces (default)
+Style/BracesAroundHashParameters:
+  Enabled: true
+# 等価演算子(===)を使用しているか確認する
+Style/CaseEquality:
+  Enabled: true
+# `is_a?` または `kind_of?` のどちらか一方に統一する
+# EnforcedStyle: is_a? (default)
+Style/ClassCheck:
+  Enabled: true
+# 注釈キーワードがガイドラインに則っているか確認する
+Style/CommentAnnotation:
+  Enabled: true
+# 条件によって同じ変数に格納する値を変える場合の記法が適切か確認する
+Style/ConditionalAssignment:
+  Enabled: true
+# `Date`か` Time` に置き換えられる `DateTime` か確認する
+Style/DateTime:
+  Enabled: true
+# 引数を取らないメソッドの定義で括弧をつけていないか確認する
+Style/DefWithParentheses:
+  Enabled: true
+# クラスやモジュールのドキュメントが上部に記載されているか確認する
+# NOTE: 省略するため無効にする
+Style/Documentation:
+  Enabled: false
+# 固定文字列のリテラルコメントをつけているか確認する
+# EnforcedStyle: when_needed (default)
+# NOTE: 不要なので無効にする
+Style/FrozenStringLiteralComment:
+  Enabled: false
+# ガード節を使用しているか確認する
+Style/GuardClause:
+  Enabled: true
+# ハッシュリテラルの構文を確認する
+# EnforcedStyle: ruby19 (default)
+Style/HashSyntax:
+  Enabled: true
+# if文とunless文が1文で収まるか確認する
+Style/IfUnlessModifier:
+  Enabled: true
+# `not` や `!` を使わずに反転できるメソッドがないか確認する
+Style/InverseMethods:
+  Enabled: true
+# 定数が可変なリテラル（配列やハッシュなど）でないかどうか確認する
+# NOTE: クラス変数を定義するケースもあるので無効にする
+Style/MutableConstant:
+  Enabled: false
+# if文がネガティブで使用されていないか確認する
+Style/NegatedIf:
+  Enabled: true
+# 数字は３桁ごとに_を入れているか確認する
+# NOTE: 使用しないため無効にする
+Style/NumericLiterals:
+  Enabled: false
+# `zero?` や `negative?` ではなく、比較演算子で数値を判定しているか確認する
+Style/NumericPredicate:
+  Enabled: true
+# 多重代入を使っているか確認する
+Style/ParallelAssignment:
+  Enabled: true
+# リテラル区切り文字を使用しているか確認する
+Style/PercentLiteralDelimiters:
+  Enabled: true
+# raise使用時の形式を確認する
+# EnforcedStyle: exploded (default)
+Style/RaiseArgs:
+  Enabled: true
+# 冗長な `return` を使用していないか確認する
+Style/RedundantReturn:
+  Enabled: true
+# 冗長な `self` を使用していないか確認する
+Style/RedundantSelf:
+  Enabled: true
+# Safe navigation operator を使用できるか確認する
+Style/SafeNavigation:
+  Enabled: true
+# 指定された引用符を使用しているか確認する
+# EnforcedStyle: single_quotes (default)
+Style/StringLiterals:
+  Enabled: true
+# `%i()`を使用できるか確認する
+# EnforcedStyle: percent (default)
+Style/SymbolArray:
+  Enabled: true
+# シンボルをprocとして使用できるか確認する
+Style/SymbolProc:
+  Enabled: true
+# 配列で末尾にカンマが付いていないか確認する
+# EnforcedStyleForMultiline: no_comma (default)
+Style/TrailingCommaInArrayLiteral:
+  Enabled: true
+# `attr_reader`, `attr_writer`, `attr_accessor` で代用できるアクセサがあるか確認する
+Style/TrivialAccessors:
+  Enabled: true
+# WordArrayを使用できるか確認する
+# EnforcedStyle: percent (default)
+Style/WordArray:
+  Enabled: true
+# ゼロ判定を比較演算子で行なっているか確認する
+Style/ZeroLengthPredicate:
+  Enabled: true
+
+# 安全な `JSON.parse("{}")` ではなく、 `JSON.load("{}")`, `JSON.restore("{}")` を使用していないか確認する
+Security/JSONLoad:
+  Enabled: true
+
+# 重複したインスタンス（またはシングルトン）メソッドの定義を確認する
+Lint/DuplicateMethods:
+  Enabled: true
+# シングルトンメソッドにprivate/protected修飾子を適用させない
+Lint/IneffectiveAccessModifier:
+  Enabled: true
+# シングルクォーテーションでの変数展開文字列を許可しない
+# NOTE: 変数展開の記法でコメントすることがあるため無効にする
+Lint/InterpolationCheck:
+  Enabled: false
+# イテレータ内でreturnさせない
+# NOTE: 条件を満たした時点で値を返却させたいケースがあるため無効にする
+Lint/NonLocalExitFromIterator:
+  Enabled: false
+# %i においてカンマとコロンを確認する
+Lint/PercentSymbolArray:
+  Enabled: true
+# メソッド名と左括弧の間にスペースを入れない
+Lint/ParenthesesAsGroupedExpression:
+  Enabled: true
+# ブロック内の引数またはローカル変数と、ブロック外のローカル変数の名前が同一であることを許可しない
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+# 絶対に到達しないコードは許可しない
+Lint/UnreachableCode:
+  Enabled: true
+# 未使用のブロック引数を許可しない
+Lint/UnusedBlockArgument:
+  Enabled: true
+# 未使用のメソッド引数を許可しない
+Lint/UnusedMethodArgument:
+  Enabled: true
+# 冗長なアクセス修飾子を許可しない
+Lint/UselessAccessModifier:
+  Enabled: true
+# 未使用のローカル変数を許可しない
+Lint/UselessAssignment:
+  Enabled: true
+
+# 割り当て、分岐(メソッド呼び出し)、条件に基づいたABCサイズを確認する
+# TODO: 対応が難しいため一旦適用させない リファクタリングする段階で導入を検討する
+Metrics/AbcSize:
+  Enabled: false
+# ブロックの長さが最大値を超えているか確認する
+# TODO: 対応が難しいため一旦適用させない リファクタリングする段階で導入を検討する
+Metrics/BlockLength:
+  Enabled: false
+# クラスの長さが最大値を超えているか確認する
+# TODO: 対応が難しいため一旦適用させない リファクタリングする段階で導入を検討する
+Metrics/ClassLength:
+  Enabled: false
+# 循環的な複雑さが最大値を超えているか確認する
+# TODO: 対応が難しいため一旦適用させない リファクタリングする段階で導入を検討する
+Metrics/CyclomaticComplexity:
+  Enabled: false
+# 行数が長いか確認する
+# TODO: 対応が難しいため一旦適用させない リファクタリングする段階で導入を検討する
+Metrics/LineLength:
+  Enabled: false
+# メソッドの長さが最大値を超えているか確認する
+# TODO: 対応が難しいため一旦適用させない リファクタリングする段階で導入を検討する
+Metrics/MethodLength:
+  Enabled: false
+# 複雑な条件か確認する
+# TODO: 対応が難しいため一旦適用させない リファクタリングする段階で導入を検討する
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+# アクセサメソッドの名前を適切な名前に変更する
+Naming/AccessorMethodName:
+  Enabled: true
+# メソッド名の述語箇所が適切であることを確認する
+Naming/PredicateName:
+  Enabled: true
+# メソッドの引数名が適切であることを確認する
+Naming/UncommunicativeMethodParamName:
+  Enabled: true
+# 並び順の比較方法の記述を確認する
+Performance/CompareWithBlock:
+  Enabled: true
+
+# アクティブレコードのエイリアスを呼んでいないことを確認する
+Rails/ActiveRecordAliases:
+  Enabled: true
+# 動的な `find_by_*` を使用していないか確認する
+Rails/DynamicFindBy:
+  Enabled: false
+# `Rails.root.join` でスラッシュ区切りのパスを渡していないか確認する
+Rails/FilePath:
+  Enabled: true
+# `where` を使わず、 `find_by` を使っているか確認する
+Rails/FindBy:
+  Enabled: true
+# `has_many` または `has_one` で `:dependent` を指定しているか確認する
+# TODO: 使用するか検討するため、一旦適用を見送る
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
+# `belongs_to` で同じオブジェクトの参照先を定義する `:inverse-of` を指定しているか確認する
+# TODO: 使用するか検討するため、一旦適用を見送る
+Rails/InverseOf:
+  Enabled: false
+# `only` または `except` で定義したメソッドがクラスに定義されているか確認する
+Rails/LexicallyScopedActionFilter:
+  Enabled: true
+# `pp` や `puts` ではなく、`Rails.logger.debug` を使用しているか確認する
+Rails/Output:
+  Enabled: true
+# 数値クラスに対してActiveSupportのコア拡張を使用する際の文法を確認する
+Rails/PluralizationGrammar:
+  Enabled: true
+# `blank?` に置き換えられるか確認する
+Rails/Present:
+  Enabled: true
+# `try!` to `&.` に置き換えられるか確認する
+Rails/SafeNavigation:
+  Enabled: true
+# ゾーンを指定せずにTimeを使用しているか確認する
+Rails/TimeZone:
+  Enabled: true
+# 旧式のバリデーション記法を使用していないか確認する
+Rails/Validation:
+  Enabled: true
+# 未知の環境が存在していないか確認する
+# NOTE: 新たな環境が用意された場合はこちらにも反映すること
+Rails/UnknownEnv:
+  Enabled: true
+  Environments:
+    - development
+    - test
+    - ci
+    - production
+    - staging
+
+# Gemの並び順を変更する
+Bundler/OrderedGems:
+  Enabled: true
