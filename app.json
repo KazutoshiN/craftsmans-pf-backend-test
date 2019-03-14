@@ -1,0 +1,16 @@
+{
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ],
+  "env": {
+  },
+  "formation": {
+  },
+  "name": "craftsman-pf-backend",
+  "scripts": {
+  },
+  "stack": "heroku-18"
+}
