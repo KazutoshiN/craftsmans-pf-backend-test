@@ -49,4 +49,5 @@ end
 gem 'rack-cors'
 gem 'rspec-json_expectations'
 gem 'rspec-rails'
+gem 'factory_bot_rails'
 gem 'unicorn'

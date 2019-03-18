@@ -1,0 +1,2 @@
+class OrganizationBelong < ApplicationRecord
+end
