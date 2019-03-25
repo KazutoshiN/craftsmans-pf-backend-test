@@ -1,5 +1,12 @@
 require 'rails_helper'
 RSpec.describe OrganizationsController, type: :controller do
+  describe "リレーション" do
+    it "user" do
+      organization = create(:organization, :with_user)
+      expect(organization.users[0].address).to eq('test_address')
+    end
+  end
+
   describe "GET #index" do
     it "returns a success response" do
       organization = create(:organization)

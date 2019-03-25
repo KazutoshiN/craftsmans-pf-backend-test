@@ -1,5 +1,12 @@
 require 'rails_helper'
 RSpec.describe UsersController, type: :controller do
+  describe "リレーション" do
+    it "organization" do
+      user = create(:user, :with_organization)
+      expect(user.organizations[0].organization_name).to eq('test_organization_name')
+    end
+  end
+
   describe "GET #index" do
     it "returns a success response" do
       user = create(:user)
