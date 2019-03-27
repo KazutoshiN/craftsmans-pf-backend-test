@@ -1,0 +1,2 @@
+class EmploymentInsuranceType < ApplicationRecord
+end
