@@ -8,8 +8,16 @@ RSpec.describe User, type: :model do
     end
 
     it "skill" do
-      user = create(:user, :with_skill)
+      user = create(:user, :with_user_skill)
       expect(user.skills[0].name).to eq('普通自動車運転免許')
+    end
+
+    it "attachment" do
+      user = create(:user)
+      expect {
+        user.attachments.create(filename: 'testfile.jpg', url: 'http://localhost/test')
+      }.to change(Attachment, :count).by(1)
+      expect(user.attachments.last.filename).to eq('testfile.jpg')
     end
 
     describe "master" do
@@ -17,9 +25,6 @@ RSpec.describe User, type: :model do
       
       it "blood_type" do
         expect(user.blood_type.name).to eq('A型')
-      end
-      it "employment_pattern_type" do
-        expect(user.employment_pattern_type.name).to eq('正社員')
       end
       it "pension_type" do
         expect(user.pension_type.name).to eq('厚生年金')

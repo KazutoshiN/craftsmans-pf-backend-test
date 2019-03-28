@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :organizations, through: :organization_belongs
   has_many :user_skills
   has_many :skills, through: :user_skills
+  has_many :attachments, as: :container
 
   belongs_to :blood_type, optional: true
   belongs_to :employment_pattern_type, optional: true

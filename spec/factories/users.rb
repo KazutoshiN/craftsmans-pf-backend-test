@@ -9,7 +9,6 @@ FactoryBot.define do
     blood_type_id             {1}
     address                   {"test_address"}
     address_building_name     {"tetete"}
-    employment_pattern_type_id{1}
     health_insurance_type_id  {1}
     pension_type_id           {1}
 
@@ -19,9 +18,9 @@ FactoryBot.define do
       ]}
     end
 
-    trait :with_skill do
-      skills {[
-        build(:skill)
+    trait :with_user_skill do
+      user_skills {[
+        build(:user_skill)
       ]}
     end
 
@@ -44,7 +43,6 @@ FactoryBot.define do
       working_yesr_construction       {1}
       working_yesr_current_work       {2}
       is_receive_employment_agreement {true}
-      employment_pattern_type_id      {2}
       has_injury_special_insurance    {true}
       health_insurance_type_id        {2}
       pension_type_id                 {2}

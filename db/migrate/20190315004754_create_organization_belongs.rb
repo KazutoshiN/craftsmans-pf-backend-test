@@ -4,8 +4,8 @@ class CreateOrganizationBelongs < ActiveRecord::Migration[5.2]
 
       t.string :user_id
       t.string :organization_id
-      t.string :belong_type
-      t.string :permission_type
+      t.bigint :employment_pattern_type
+      t.bigint :permission_type
       t.timestamps
     end
   end

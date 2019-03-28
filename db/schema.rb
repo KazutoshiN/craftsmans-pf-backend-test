@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2019_03_27_052533) do
   create_table "organization_belongs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "user_id"
     t.string "organization_id"
-    t.string "belong_type"
-    t.string "permission_type"
+    t.bigint "employment_pattern_type"
+    t.bigint "permission_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -111,8 +111,8 @@ ActiveRecord::Schema.define(version: 2019_03_27_052533) do
   end
 
   create_table "skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "skill_type_id"
-    t.integer "skill_detail_type_id"
+    t.bigint "skill_type_id"
+    t.bigint "skill_detail_type_id"
     t.string "name"
     t.string "code"
     t.datetime "created_at", null: false
@@ -142,7 +142,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_052533) do
   create_table "user_skills", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "user_id"
     t.bigint "skill_id"
-    t.datetime "acuired_at"
+    t.datetime "acquired_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_052533) do
     t.string "first_name_kana"
     t.string "gender"
     t.date "birth_date"
-    t.integer "blood_type_id"
+    t.bigint "blood_type_id"
     t.string "address_building_name"
     t.string "picture_url"
     t.string "address_urgent"
@@ -166,11 +166,10 @@ ActiveRecord::Schema.define(version: 2019_03_27_052533) do
     t.integer "working_yesr_construction"
     t.integer "working_yesr_current_work"
     t.boolean "is_receive_employment_agreement"
-    t.integer "employment_pattern_type_id"
     t.boolean "has_injury_special_insurance"
-    t.integer "health_insurance_type_id"
-    t.integer "pension_type_id"
-    t.integer "employment_insurance_type_id"
+    t.bigint "health_insurance_type_id"
+    t.bigint "pension_type_id"
+    t.bigint "employment_insurance_type_id"
     t.boolean "is_got_safe_education"
     t.date "last_date_of_health_check"
     t.datetime "created_at", null: false

@@ -60,7 +60,6 @@ RSpec.describe UsersController, type: :controller do
         expect(User.last.working_yesr_construction).to eq(new_attributes[:working_yesr_construction])
         expect(User.last.working_yesr_current_work).to eq(new_attributes[:working_yesr_current_work])
         expect(User.last.is_receive_employment_agreement).to eq(new_attributes[:is_receive_employment_agreement])
-        expect(User.last.employment_pattern_type_id).to eq(new_attributes[:employment_pattern_type_id])
         expect(User.last.has_injury_special_insurance).to eq(new_attributes[:has_injury_special_insurance])
         expect(User.last.health_insurance_type_id).to eq(new_attributes[:health_insurance_type_id])
         expect(User.last.pension_type_id).to eq(new_attributes[:pension_type_id])

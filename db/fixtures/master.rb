@@ -1,3 +1,17 @@
+require 'csv'
+
+CSV.read('db/fixtures/csv/skills.csv').each_with_index do |skill, i|
+  Skill.seed do |s|
+    s.id                   = skill[0]
+    s.skill_type_id        = skill[1]
+    s.skill_detail_type_id = skill[2]
+    s.code                 = skill[3]
+    s.name                 = skill[4]
+    s.created_at           = skill[5]
+    s.updated_at           = skill[6]
+  end
+end
+
 BloodType.seed(:id,
   { :id => 1, :code => "a", :name => "A型", :sort_order => 1},
   { :id => 2, :code => "a_rh_minus", :name => "A型 RH-", :sort_order => 2},
