@@ -56,8 +56,8 @@ ActiveRecord::Schema.define(version: 2019_03_27_052533) do
   create_table "organization_belongs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "user_id"
     t.string "organization_id"
-    t.bigint "employment_pattern_type"
-    t.bigint "permission_type"
+    t.bigint "employment_pattern_type_id"
+    t.bigint "permission_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,10 +1,10 @@
 require 'rails_helper'
-RSpec.describe UsersController, type: :controller do
+RSpec.describe "UsersController", type: :request do
   describe "GET #index" do
     it "returns a success response" do
       user = create(:user)
-      get :index, params: {}
-      expect(response).to be_successful
+      get '/api/v1/users'
+      expect(response.status).to eq(200)
       expect(response.body).to match(/test_address/)
       expect(response.content_type).to eq('application/json')
     end
@@ -13,8 +13,8 @@ RSpec.describe UsersController, type: :controller do
   describe "GET #show" do
     it "returns a success response" do
       user = create(:user)
-      get :show, params: {id: user.to_param}
-      expect(response).to be_successful
+      get "/api/v1/users/#{user.to_param}"
+      expect(response.status).to eq(200)
       expect(response.body).to match(/test_address/)
       expect(response.content_type).to eq('application/json')
     end
@@ -25,9 +25,9 @@ RSpec.describe UsersController, type: :controller do
       it "ユーザー作成" do
         new_attributes = attributes_for(:user)
         expect {
-          post :create, params: {user: new_attributes}
+          post "/api/v1/users", params: {user: new_attributes}
         }.to change(User, :count).by(1)
-        expect(response).to have_http_status(:created)
+        expect(response.status).to eq(200)
         expect(response.content_type).to eq('application/json')
       end
     end
@@ -38,9 +38,9 @@ RSpec.describe UsersController, type: :controller do
       it "updates the requested user" do
         user = create(:user)
         new_attributes = attributes_for(:user, :update_params)
-        put :update, params: {id: user.to_param, user: new_attributes}
+        put "/api/v1/users/#{user.to_param}", params: {user: new_attributes}
         user.reload
-        expect(response).to have_http_status(:ok)
+        expect(response.status).to eq(200)
         expect(response.content_type).to eq('application/json')
         expect(User.last.last_name).to eq(new_attributes[:last_name])
         expect(User.last.last_name_kana).to eq(new_attributes[:last_name_kana])
@@ -74,8 +74,9 @@ RSpec.describe UsersController, type: :controller do
     it "destroys the requested user" do
       user = create(:user)
       expect {
-        delete :destroy, params: {id: user.to_param}
+        delete "/api/v1/users/#{user.to_param}"
       }.to change(User, :count).by(-1)
+      expect(response.status).to eq(200)
     end
   end
 
