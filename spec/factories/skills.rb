@@ -11,7 +11,7 @@ FactoryBot.define do
       ]}
     end
 
-    trait :update_skill do
+    trait :update_params do
       skill_type_id         {3}
       skill_detail_type_id  {8}
       code                  {"玉掛（1t未満）"}

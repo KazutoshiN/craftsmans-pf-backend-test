@@ -1,12 +1,11 @@
 require 'rails_helper'
-RSpec.describe SkillsController, type: :controller do
-
+RSpec.describe "SkillsController", type: :request do
   describe "GET #index" do
     it "returns a success response" do
       skill = create(:skill)
-      get :index, params: {}
-      expect(response).to be_successful
-      expect(response.body).to match(/driver_licence_ordinary/)
+      get '/api/v1/skills'
+      expect(response.status).to eq(200)
+      expect(response.body).to match(/普通自動車運転免許/)
       expect(response.content_type).to eq('application/json')
     end
   end
@@ -14,24 +13,23 @@ RSpec.describe SkillsController, type: :controller do
   describe "GET #show" do
     it "returns a success response" do
       skill = create(:skill)
-      get :show, params: {id: skill.to_param}
-      expect(response).to be_successful
-      expect(response.body).to match(/driver_licence_ordinary/)
+      get "/api/v1/skills/#{skill.to_param}"
+      expect(response.status).to eq(200)
+      expect(response.body).to match(/普通自動車運転免許/)
       expect(response.content_type).to eq('application/json')
     end
   end
 
   describe "POST #create" do
     context "with valid params" do
-      it "creates a new Skill" do
+      it "ユーザー作成" do
         new_attributes = attributes_for(:skill)
         expect {
-          post :create, params: {skill: new_attributes}
+          post "/api/v1/skills", params: {skill: new_attributes}
         }.to change(Skill, :count).by(1)
-        expect(response).to have_http_status(:created)
+        expect(response.status).to eq(200)
         expect(response.content_type).to eq('application/json')
       end
-
     end
   end
 
@@ -39,10 +37,10 @@ RSpec.describe SkillsController, type: :controller do
     context "with valid params" do
       it "updates the requested skill" do
         skill = create(:skill)
-        new_attributes = attributes_for(:skill, :update_skill)
-        put :update, params: {id: skill.to_param, skill: new_attributes}
+        new_attributes = attributes_for(:skill, :update_params)
+        put "/api/v1/skills/#{skill.to_param}", params: {skill: new_attributes}
         skill.reload
-        expect(response).to have_http_status(:ok)
+        expect(response.status).to eq(200)
         expect(response.content_type).to eq('application/json')
         expect(Skill.last.skill_type_id).to eq(new_attributes[:skill_type_id])
         expect(Skill.last.skill_detail_type_id).to eq(new_attributes[:skill_detail_type_id])
@@ -56,9 +54,9 @@ RSpec.describe SkillsController, type: :controller do
     it "destroys the requested skill" do
       skill = create(:skill)
       expect {
-        delete :destroy, params: {id: skill.to_param}
+        delete "/api/v1/skills/#{skill.to_param}"
       }.to change(Skill, :count).by(-1)
+      expect(response.status).to eq(200)
     end
   end
-
 end
