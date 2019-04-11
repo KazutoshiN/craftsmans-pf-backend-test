@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_052533) do
+ActiveRecord::Schema.define(version: 2019_04_11_045452) do
 
   create_table "attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "container_id"
@@ -56,8 +56,24 @@ ActiveRecord::Schema.define(version: 2019_03_27_052533) do
   create_table "organization_belongs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "user_id"
     t.string "organization_id"
-    t.bigint "employment_pattern_type"
-    t.bigint "permission_type"
+    t.bigint "employment_pattern_type_id"
+    t.bigint "permission_type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "organization_relationship_types", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "code"
+    t.string "name"
+    t.integer "sort_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "organization_relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "organization_from_id"
+    t.string "organization_to_id"
+    t.bigint "organization_relationship_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -163,8 +179,8 @@ ActiveRecord::Schema.define(version: 2019_03_27_052533) do
     t.string "phone_urgent"
     t.string "relationship_urgent"
     t.string "organization_joined_date"
-    t.integer "working_yesr_construction"
-    t.integer "working_yesr_current_work"
+    t.integer "working_year_construction"
+    t.integer "working_year_current_work"
     t.boolean "is_receive_employment_agreement"
     t.boolean "has_injury_special_insurance"
     t.bigint "health_insurance_type_id"

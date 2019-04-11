@@ -1,4 +1,4 @@
-Organizations.seed(:id,
+Organization.seed(:id,
   {
     :id                    => 1,
     :name                  => "BPM株式会社",
@@ -34,7 +34,16 @@ Organizations.seed(:id,
   }
 )
 
-OrganizationBelongs.seed(:id,
+OrganizationRelationship.seed(:id,
+  {
+    :id                   => 1,
+    :organization_from_id => 1,
+    :organization_to_id   => 2,
+    :organization_relationship_type_id   => 1,
+  }
+)
+
+OrganizationBelong.seed(:id,
   {
     :id                 => 1,
     :organization_id    => 1,
@@ -64,7 +73,7 @@ OrganizationBelongs.seed(:id,
   }
 )
 
-Users.seed(:id,
+User.seed(:id,
   {
     :id                              => 1,
     :last_name                       => "齋藤",
@@ -84,19 +93,19 @@ Users.seed(:id,
     :organization_joined_date        => "2016/03",
     :working_year_construction       => 10,
     :working_year_current_work       => 5,
-    :is_receive_employment_agreement => TRUE,
-    :has_injury_special_insurance    => TRUE,
+    :is_receive_employment_agreement => true,
+    :has_injury_special_insurance    => true,
     :health_insurance_type_id        => 1,
     :pension_type_id                 => 1,
     :employment_insurance_type_id    => 1,
-    :is_got_safe_education           => TRUE,
+    :is_got_safe_education           => true,
     :last_date_of_health_check       => "2019/03/11",
     :created_at                      => "2019/03/11",
     :updated_at                      => "2019/03/11"
   }
 )
 
-User_skills.seed(:id,
+UserSkill.seed(:id,
   {
     :id          => 1,
     :user_id     => 1,
@@ -107,7 +116,7 @@ User_skills.seed(:id,
   }
 )
 
-Attachments.seed(:id,
+Attachment.seed(:id,
   {
     :id             => 1,
     :container_id   => 1,

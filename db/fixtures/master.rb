@@ -70,3 +70,7 @@ PermissionType.seed(:id,
   { :id => 1, :code => "general", :name => "一般", :sort_order => 1},
   { :id => 2, :code => "admin", :name => "管理者", :sort_order => 2}
 )
+
+OrganizationRelationshipType.seed(:id,
+  { :id => 1, :code => "collaborator_oraganization", :name => "協力会社", :sort_order => 1}
+)

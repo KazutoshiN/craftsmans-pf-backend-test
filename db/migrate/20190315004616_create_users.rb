@@ -18,8 +18,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :phone_urgent
       t.string :relationship_urgent
       t.string :organization_joined_date
-      t.integer :working_yesr_construction
-      t.integer :working_yesr_current_work
+      t.integer :working_year_construction
+      t.integer :working_year_current_work
       t.boolean :is_receive_employment_agreement
       t.boolean :has_injury_special_insurance
       t.bigint :health_insurance_type_id
