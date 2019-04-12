@@ -15,8 +15,11 @@ Rails.application.routes.draw do
       resources :employment_pattern_types
       resources :employment_insurance_types
       resources :permission_types
+      resources :organization_relationships
+      get '/managed_craftsman/:id', to: 'organization_relationships#managed_craftsman'
     end
   end
+
 
   namespace :v1 do
     resources :records

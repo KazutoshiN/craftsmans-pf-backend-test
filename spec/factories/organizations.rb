@@ -22,5 +22,14 @@ FactoryBot.define do
       logo_url              {"http://localhost/test_update"}
     end
 
+    trait :other do
+      name                  {"テスト組織_other"}
+      shortname             {"TST_other"}
+      postal_code           {"102-0081"}
+      address               {"東京都千代田区麹町1-1-1_other"}
+      address_building_name {"テストビル 101_other"}
+      logo_url              {"http://localhost/test_other"}
+    end
+
   end
 end

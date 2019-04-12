@@ -9,6 +9,7 @@ FactoryBot.define do
     blood_type_id             {1}
     address                   {"test_address"}
     address_building_name     {"tetete"}
+    picture_url                     {"http://localhost/test"}
     health_insurance_type_id  {1}
     pension_type_id           {1}
 

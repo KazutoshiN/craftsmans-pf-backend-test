@@ -71,11 +71,14 @@ ActiveRecord::Schema.define(version: 2019_04_11_045452) do
   end
 
   create_table "organization_relationships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "organization_from_id"
-    t.string "organization_to_id"
+    t.string "from_id"
+    t.string "to_id"
     t.bigint "organization_relationship_type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["from_id", "to_id"], name: "index_organization_relationships_on_from_id_and_to_id", unique: true
+    t.index ["from_id"], name: "index_organization_relationships_on_from_id"
+    t.index ["to_id"], name: "index_organization_relationships_on_to_id"
   end
 
   create_table "organizations", id: :string, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

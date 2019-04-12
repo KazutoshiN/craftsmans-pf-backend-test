@@ -37,8 +37,8 @@ Organization.seed(:id,
 OrganizationRelationship.seed(:id,
   {
     :id                   => 1,
-    :organization_from_id => 1,
-    :organization_to_id   => 2,
+    :from_id => 1,
+    :to_id   => 2,
     :organization_relationship_type_id   => 1,
   }
 )
