@@ -53,6 +53,6 @@ test:
 production:
   <<: *default
   host: localhost #TBD
-  database: craftsman_pf_backend_production
-  username: TBD
-  password: <%= ENV['CRAFTSMAN_PF_DATABASE_PASSWORD'] %>
+  database: heroku_145b0916e05ff87
+  username: be907d78a2c9e9
+  password: <%= ENV['DATABASE_PASSWORD'] %>
